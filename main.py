@@ -1,14 +1,26 @@
+import os
 lista_zakupow=[]
 while True:
-    zakup=input("Dodaj zakupy do listy: ")
-    lista_zakupow.append(zakup)
-    polecenie=input("Czy chcesz zakończyć listę:")
-    if polecenie == "tak":
+    os.system("clear")
+    OPCJE=int(input("Uzytkowniku, w celu dalszego działania, wybierz opcje:\n1. Dodanie zakupu do listy\n2. Modyfikacja listy\n3. Usuwanie zakupu z listy\n4. Zakończenie\n "))
+    if OPCJE==1:
+        while True:
+            ELEMENT_LISTY=input("Wpisz zakup:")
+            lista_zakupow.append(ELEMENT_LISTY)
+            DODANIE=input("Czy chcesz dodać coś jeszcze? ")
+            if DODANIE=="nie":
+                break
+    elif OPCJE==2 and len(lista_zakupow)>0:
+        print(lista_zakupow)
+        MODYFIKACJA_NUMER=int(input("Który element chcesz zmodyfikować: "))-1
+        MODYFIKACJA_ELEMENT=input("Na jaki produkt chcesz zmienić: ")
+        lista_zakupow[MODYFIKACJA_NUMER]=MODYFIKACJA_ELEMENT
+    elif OPCJE==3:
+        print(lista_zakupow)
+        USUWANIE=input("Który produkt chcesz usunąć: ")
+        lista_zakupow.remove(USUWANIE)
+    elif OPCJE==4:
         break
     else:
-        zmiana=input("Czy chcesz zmodyfikować swoją listę:")
-        if zmiana=="tak":
-            zmiana_numer=int(input("Który element chcesz zmienić: "))
-            lista_zakupow[zmiana_numer]=str(input("Na co chcesz zmienić:"))       
+        print("Nie rozumiem.")
 print(lista_zakupow)
-
