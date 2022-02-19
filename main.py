@@ -31,5 +31,7 @@ while True:
         break
     else:
         print("Nie rozumiem.")
-print(lista_zakupow)
-
+lista_zakupow.sort()
+os.system("clear")
+for index, zakup in enumerate(lista_zakupow):
+    print(f"Zakup numer {index+1}: {zakup}")
